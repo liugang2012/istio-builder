@@ -1,0 +1,1 @@
+FROM --platform linux/arm64 querycapistio/pilot:1.11.8

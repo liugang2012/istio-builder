@@ -1,0 +1,1 @@
+FROM --platform linux/arm64 curlimages/curl:7.88.1
