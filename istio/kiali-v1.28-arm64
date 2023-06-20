@@ -1,0 +1,1 @@
+FROM --platform linux/arm64 quay.io/kiali/kiali:v1.28

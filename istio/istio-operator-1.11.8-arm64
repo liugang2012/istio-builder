@@ -1,0 +1,1 @@
+FROM --platform linux/arm64 querycapistio/operator:1.11.8

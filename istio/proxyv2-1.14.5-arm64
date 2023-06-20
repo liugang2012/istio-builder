@@ -1,0 +1,1 @@
+FROM --platform linux/arm64 ghcr.io/resf/istio/proxyv2:1.14.5
