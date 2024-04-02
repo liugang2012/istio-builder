@@ -46,12 +46,19 @@ l="jaegertracing/jaeger-operator:1.24.0=jaeger-operator-1.24.0
    docker.io/istio/examples-bookinfo-productpage-v1:1.17.0=examples-bookinfo-productpage-v1-1.17.0
    openservicemesh/tcp-echo-server:latest-main=examples-tcp-echo-server-1.2
    curlimages/curl:7.88.1=examples-curl-7.88.1
-   kong/httpbin:0.1.0=examples-httpbin-0.1.0"
+   kong/httpbin:0.1.0=examples-httpbin-0.1.0
+   gcr.io/spiffe-io/spire-agent:1.2.0=spire-agent:1.2.0
+   ghcr.io/spiffe/spiffe-csi-driver:0.1.0=spiffe-csi-driver:0.1.0
+   k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.4.0=csi-node-driver-registrar:v2.4.0
+   gcr.io/spiffe-io/wait-for-it:latest=wait-for-it:latest
+   gcr.io/spiffe-io/spire-server:1.2.0=spire-server:1.2.0
+   gcr.io/spiffe-io/k8s-workload-registrar:1.2.0=k8s-workload-registrar:1.2.0"
 
 for i in $l
 do
 	src=`echo $i | awk -F"=" '{print $1}' `
-	dst=`echo $i | awk -F"=" '{print $2}' `
+	dst=`echo $i | awk -F"=" '{print $2}' | sed 's/:/-/g' `
+	echo $src
 	echo "FROM --platform linux/arm64 ${src}" > ${dst}-arm64
 	echo "FROM --platform linux/amd64 ${src}" > ${dst}-amd64
 done

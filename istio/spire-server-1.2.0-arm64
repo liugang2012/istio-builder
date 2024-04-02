@@ -1,0 +1,1 @@
+FROM --platform linux/arm64 gcr.io/spiffe-io/spire-server:1.2.0
