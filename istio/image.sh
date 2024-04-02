@@ -16,16 +16,19 @@ do
 	echo "=============  HUB_ARM64=$HUB_ARM64"
 
 	# proxyv2
-	echo "FROM --platform linux/arm64 ${HUB_ARM64}/proxyv2:$VERSION" > proxyv2-$VERSION-arm64
-	echo "FROM --platform linux/amd64 istio/proxyv2:$VERSION" > proxyv2-$VERSION-amd64
+#	echo "FROM --platform linux/arm64 ${HUB_ARM64}/proxyv2:$VERSION" > proxyv2-$VERSION-arm64
+#	echo "FROM --platform linux/amd64 istio/proxyv2:$VERSION" > proxyv2-$VERSION-amd64
+	echo "FROM istio/proxyv2:$VERSION" > proxyv2-$VERSION-amd64
 
 	# pilot
-	echo "FROM --platform linux/arm64 ${HUB_ARM64}/pilot:$VERSION" > pilot-$VERSION-arm64
-	echo "FROM --platform linux/amd64 istio/pilot:$VERSION" > pilot-$VERSION-amd64
+#	echo "FROM --platform linux/arm64 ${HUB_ARM64}/pilot:$VERSION" > pilot-$VERSION-arm64
+#	echo "FROM --platform linux/amd64 istio/pilot:$VERSION" > pilot-$VERSION-amd64
+	echo "FROM istio/pilot:$VERSION" > pilot-$VERSION-amd64
 
 	# operator
-	echo "FROM --platform linux/arm64 ${HUB_ARM64}/operator:$VERSION" > istio-operator-$VERSION-arm64
-	echo "FROM --platform linux/amd64 istio/operator:$VERSION" > istio-operator-$VERSION-amd64
+#	echo "FROM --platform linux/arm64 ${HUB_ARM64}/operator:$VERSION" > istio-operator-$VERSION-arm64
+#	echo "FROM --platform linux/amd64 istio/operator:$VERSION" > istio-operator-$VERSION-amd64
+	echo "FROM istio/operator:$VERSION" > istio-operator-$VERSION-amd64
 
 done
 
@@ -58,7 +61,7 @@ for i in $l
 do
 	src=`echo $i | awk -F"=" '{print $1}' `
 	dst=`echo $i | awk -F"=" '{print $2}' | sed 's/:/-/g' `
-	echo $src
-	echo "FROM --platform linux/arm64 ${src}" > ${dst}-arm64
-	echo "FROM --platform linux/amd64 ${src}" > ${dst}-amd64
+#	echo "FROM --platform linux/arm64 ${src}" > ${dst}-arm64
+#	echo "FROM --platform linux/amd64 ${src}" > ${dst}-amd64
+	echo "FROM ${src}" > ${dst}-amd64
 done

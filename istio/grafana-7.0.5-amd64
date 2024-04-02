@@ -1,1 +1,1 @@
-FROM --platform linux/amd64 grafana/grafana:7.0.5
+FROM grafana/grafana:7.0.5

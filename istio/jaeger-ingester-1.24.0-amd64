@@ -1,1 +1,1 @@
-FROM --platform linux/amd64 jaegertracing/jaeger-ingester:1.24.0
+FROM jaegertracing/jaeger-ingester:1.24.0

@@ -1,1 +1,1 @@
-FROM --platform linux/amd64 openservicemesh/tcp-echo-server:latest-main
+FROM openservicemesh/tcp-echo-server:latest-main

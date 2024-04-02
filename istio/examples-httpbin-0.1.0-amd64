@@ -1,1 +1,1 @@
-FROM --platform linux/amd64 kong/httpbin:0.1.0
+FROM kong/httpbin:0.1.0

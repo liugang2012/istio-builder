@@ -1,1 +1,1 @@
-FROM --platform linux/amd64 istio/pilot:1.11.8
+FROM istio/pilot:1.11.8
